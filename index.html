@@ -161,6 +161,10 @@
       cursor: pointer;
       transition: background 0.15s;
       position: relative;
+      /* fixed size — marks must never push layout */
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
     }
 
     .cell:hover:not(.taken):not(.locked) {
@@ -184,10 +188,12 @@
 
     /* ── SVG marks ───────────────────────────────────── */
     .mark {
+      position: absolute;
       width: 58%;
       height: 58%;
       display: block;
       overflow: visible;
+      pointer-events: none;
     }
 
     .x-arm {
